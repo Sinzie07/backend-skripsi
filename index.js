@@ -26,7 +26,6 @@ const resultRoutes = require("./routes/result_routes");
 // Use routes
 app.use("/api/results", resultRoutes);
 app.use("/api/user", userRoutes);
-h;
 
 // App listen
 app.listen(() => {
