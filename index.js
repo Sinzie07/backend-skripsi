@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const serverless = require("serverless-http");
+const dotenv = require("dotenv").config();
+const { DB_URI } = process.env;
 
 const express = require("express");
 const app = express();
@@ -15,7 +16,7 @@ const uri =
   "mongodb+srv://sinziewinata:sinziewinata546@cluster0.b2xfwve.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose
-  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected to the database"))
   .catch((error) => console.error("Database connection error:", error));
 
