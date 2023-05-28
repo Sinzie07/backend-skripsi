@@ -8,6 +8,7 @@ const express = require("express");
 dotenv.config({ path: "./.env" });
 
 const DB_URI = process.env.DB_URI;
+const PORT = process.env.PORT | 80;
 
 mongoose
   .connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -33,6 +34,6 @@ app.use("/api/results", resultRoutes);
 app.use("/api/user", userRoutes);
 
 // App listen
-app.listen(() => {
-  console.log(`Server is running on port 5000`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
